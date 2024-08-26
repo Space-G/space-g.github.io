@@ -18,19 +18,75 @@
     border-style: solid;
 }
 
+.comic-sans{
+    font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Comic Neue', sans-serif;
+}
+
+.widget-holder{
+    display: flex;
+    margin: 1em;
+    border-radius: 1em;
+    padding: 1em;
+    background-color: #1e023b;
+    background-color: oklch(20% 0.1 300);
+    max-height: 90vh;
+    justify-content: center;
+}
+
+.widget-main{
+    flex: 4;
+    color: white;
+}
+
+.widget-aside{
+    flex: 1;
+}
+
+.widget-title{
+    font-size: 2em;
+    margin: 0 0 0.5em 0;
+}
+
+.widget{
+    font-size: 1.5em;
+    overflow-y: scroll;
+    max-height: 100%;
+}
+
+
+@media (max-width: 720pt){
+    #logo img{
+        display: none;
+    }
+
+    #animal-well{
+        align-items: center !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    #animal-well p{
+        padding: 0 !important;
+        margin-top: 0 !important;
+        text-align: end !important;
+    }
+}
+
 hr{
  margin: 0;
 }
 
 body{
-    background-color: #350a3e;
-    background-color: oklch(25% 0.1 320);
+    background-color: #09000c;
+    background-color: oklch(10% 0.05 320);
+    padding: 0;
+    margin: 0;
 }
 
 header{
     max-width: 2000pt;
-    background-color: #7c4f86;
-    background-color: oklch(50% 0.1 320);
+    background-color: #1e023b;
+    background-color: oklch(20% 0.1 300);
+    margin: 12pt;
     border-radius: var(--topbar-border-radius);
 }
 
@@ -47,7 +103,7 @@ nav * li{
     color: inherit;
     text-decoration: none;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 24pt;;
+    font-size: min(24pt, 5vw);
     text-align: center;
 }
 
@@ -58,23 +114,26 @@ nav * a{
     width: 100%;
 }
 
-nav * a:hover, .active{
+nav * a:hover, .active, .subtitle{
     color: white;
-    background-color: #8059bb;
-    background-color: oklch(55% 0.15 300);
+    background-color: #350a3e;
+    background-color: oklch(25% 0.1 320);
 }
 
 #logo{
     display: flex;
     align-content: center;
     justify-content: space-between;
+    min-height: 92pt;
 }
 
 #logo h1{
+    flex-grow: 1;
     color: lightgray;
     margin: 0;
     font-size: min(5vw, 64pt);
     text-wrap: nowrap;
+    text-align: center;
     align-self: center;
     font-family: 'Courier New', Courier, monospace;
 }
@@ -93,4 +152,65 @@ nav * a:hover, .active{
 
 #right-corner{
     border-radius: 0 0 var(--topbar-border-radius) 0;
+}
+
+#banner{
+    margin-top: 20pt;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url(https://www.animalwell.net/press/Animal%20Well/images/gif_DiscChase.gif);
+    background-size: cover;
+    background-position: 50% 50%;
+    min-height: 75vh;
+    width: 100vw;
+}
+
+#animal-well{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    color: lightgray;
+    padding-top: 25vh;
+    padding-bottom: 0;
+    margin-top: 0;
+}
+
+#animal-well img{
+    width: min(480pt, 33vw);
+}
+
+#animal-well p{
+    text-align: end;
+    margin: 0;
+    margin-top: -20pt;
+    padding-left: 5em;
+    padding-right: 50vw;
+    font-size: 24pt;
+}
+
+#banner .subtitle{
+    display: flexbox;
+    font-size: larger;
+    padding: 1em;
+    text-decoration: none;
+    border-radius: 10pt 10pt 0 0;
+}
+
+#banner .subtitle:hover{
+    animation-name: inf-rot;
+    animation-timing-function: linear;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes inf-rot {
+    0% {
+        transform: rotate3d(0, 2, 1, 0deg);
+    }
+
+    100% {
+        transform: rotate3d(0, 2, 1, -360deg);
+    }
 }
